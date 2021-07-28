@@ -1,10 +1,44 @@
 import { useState } from "react";
 import "./App.css";
 
+const emojiDictionary = {
+  "😀": "Grinning Face",
+  "😃": "Grinning Face with Big Eyes",
+  "😄": "Grinning Face with Smiling Eyes",
+  "😁": "Beaming Face with Smiling Eyes",
+  "😆": "Grinning Squinting Face",
+  "😅": "Grinning Face with Sweat",
+  "🤣": "Rolling on the Floor Laughing",
+  "😂": "Face with Tears of Joy",
+  "🙂": "Slightly Smiling Face",
+  "🙃": "Upside-Down Face",
+  "😉": "Winking Face",
+  "😊": "Smiling Face with Smiling Eyes",
+  "😇": "Smiling Face with Halo",
+  "🥰": "Smiling Face with Hearts",
+  "😍": "Smiling Face with Heart-Eyes",
+  "🤩": "Star-Struck",
+  "😘": "Face Blowing a Kiss",
+  "😗": "Kissing Face",
+  "☺️": "Smiling Face",
+  "😚": "Kissing Face with Closed Eyes",
+  "😙": "Kissing Face with Smiling Eyes",
+};
+
 function App() {
-  let [userInput, setUserInput] = useState("");
+  let [meaning, setMeaning] = useState("");
   function inputChangeHandler(event) {
-    setUserInput(event.target.value);
+    let emoji = event.target.value;
+    let meaning = "";
+    if (emoji in emojiDictionary) {
+      meaning = emojiDictionary[emoji];
+    }
+
+    if (meaning === undefined) {
+      meaning = "";
+    }
+
+    setMeaning(meaning);
   }
 
   return (
@@ -16,7 +50,7 @@ function App() {
         placeholder="Enter Emoji Here!"
         onChange={inputChangeHandler}
       />
-      <div>Welcome {userInput}</div>
+      <div className="meaning">Meaning: {meaning}</div>
     </div>
   );
 }
