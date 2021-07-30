@@ -37,9 +37,14 @@ function App() {
     }
 
     if (meaning === undefined) {
-      meaning = "";
+      meaning = "We don't have this in our database";
     }
 
+    setMeaning(meaning);
+  }
+
+  function emojiClickHandler(emoji) {
+    let meaning = emojiDictionary[emoji];
     setMeaning(meaning);
   }
 
@@ -57,7 +62,12 @@ function App() {
       <div>Emojis We Know: </div>
       <div className="wrapper">
         {emojisWeKnow.map((emoji) => {
-          return <span key={emoji}> {emoji} </span>;
+          return (
+            <span onClick={() => emojiClickHandler(emoji)} key={emoji}>
+              {" "}
+              {emoji}{" "}
+            </span>
+          );
         })}
       </div>
     </div>

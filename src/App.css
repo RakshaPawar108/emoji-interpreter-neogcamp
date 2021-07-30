@@ -22,6 +22,8 @@
 
 .wrapper span {
   font-size:35px;
+  padding: 0.5rem;
+  cursor: pointer;
 }
 
 
