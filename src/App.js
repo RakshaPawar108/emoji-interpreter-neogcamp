@@ -25,6 +25,8 @@ const emojiDictionary = {
   "😙": "Kissing Face with Smiling Eyes",
 };
 
+const emojisWeKnow = Object.keys(emojiDictionary);
+
 function App() {
   let [meaning, setMeaning] = useState("");
   function inputChangeHandler(event) {
@@ -51,6 +53,13 @@ function App() {
         onChange={inputChangeHandler}
       />
       <div className="meaning">Meaning: {meaning}</div>
+      <br />
+      <div>Emojis We Know: </div>
+      <div className="wrapper">
+        {emojisWeKnow.map((emoji) => {
+          return <span key={emoji}> {emoji} </span>;
+        })}
+      </div>
     </div>
   );
 }

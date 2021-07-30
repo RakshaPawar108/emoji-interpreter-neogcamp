@@ -12,3 +12,16 @@
   font-weight: bold;
 }
 
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  padding: 2rem;
+  width: 100%;
+}
+
+.wrapper span {
+  font-size:35px;
+}
+
+
